@@ -1,10 +1,10 @@
-import { Achievement } from '@/config/achievements';
+import { Achievement } from "@/config/achievements";
 import {
   Award,
   Music,
   Mic,
   Radio,
-} from 'lucide-react';
+} from "lucide-react";
 
 const ICONS = {
   award: Award,
@@ -26,28 +26,27 @@ const AchievementCard = ({ achievement }: Props) => {
         group relative
         h-full
         rounded-2xl
-        border border-border
-        bg-card
+        border
         transition-all duration-300 ease-out
         hover:-translate-y-1
-        hover:border-primary/60
-        hover:shadow-[0_0_40px_rgba(255,180,0,0.15)]
       "
+      style={{
+        backgroundColor: "hsla(var(--card) / 0.85)",
+        borderColor: "hsla(var(--border) / 1)",
+      }}
     >
-      {/* Gradient overlay */}
+      {/* Hover glow */}
       <div
         className="
-          pointer-events-none
-          absolute inset-0
-          rounded-2xl
-          opacity-0
-          group-hover:opacity-100
+          absolute inset-0 rounded-2xl
+          opacity-0 group-hover:opacity-100
           transition-opacity duration-300
-          bg-gradient-to-br
-          from-primary/10
-          via-transparent
-          to-transparent
+          pointer-events-none
         "
+        style={{
+          boxShadow:
+            "0 0 14px hsl(0 85% 55% / 0.35), 0 0 28px hsl(0 85% 55% / 0.2)",
+        }}
       />
 
       {/* Content */}
@@ -58,14 +57,15 @@ const AchievementCard = ({ achievement }: Props) => {
             mb-4
             w-12 h-12
             rounded-xl
-            border border-primary/40
             flex items-center justify-center
             transition-all duration-300
-            group-hover:border-primary
-            group-hover:shadow-[0_0_20px_rgba(255,180,0,0.35)]
           "
+          style={{
+            border: "1px solid hsla(var(--primary) / 0.4)",
+            color: "hsl(var(--primary))",
+          }}
         >
-          <Icon className="w-6 h-6 text-primary transition-transform group-hover:scale-110" />
+          <Icon className="w-6 h-6 transition-transform group-hover:scale-110" />
         </div>
 
         {/* Title */}

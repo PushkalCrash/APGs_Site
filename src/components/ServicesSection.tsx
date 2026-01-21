@@ -15,23 +15,23 @@ const ServicesSection = () => {
         </div>
       </div>
 
-
       {/* ===== MOBILE (STATIC STACK) ===== */}
-      <div className="container">
-        <div className="grid gap-6 md:hidden">
+      <div className="container md:hidden">
+        <div className="grid gap-6">
           {SERVICES.map((service, i) => (
             <ServiceCard key={i} service={service} />
           ))}
         </div>
       </div>
 
-      {/* ===== DESKTOP / TABLET (MARQUEE) - FULL WIDTH ===== */}
-      <div className="relative hidden md:block overflow-hidden w-full">
+      {/* ===== DESKTOP / TABLET (MARQUEE) ===== */}
+      <div className="relative hidden md:block w-full overflow-hidden">
         {/* Left edge fade */}
         <div
           className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
           style={{
-            background: "linear-gradient(to right, hsl(var(--background)), transparent)"
+            background:
+              "linear-gradient(to right, hsl(var(--background)), hsla(var(--background) / 0))",
           }}
         />
 
@@ -39,29 +39,33 @@ const ServicesSection = () => {
         <div
           className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
           style={{
-            background: "linear-gradient(to left, hsl(var(--background)), transparent)"
+            background:
+              "linear-gradient(to left, hsl(var(--background)), hsla(var(--background) / 0))",
           }}
         />
 
-        <div 
+        <div
           className="flex w-max"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-
-          {/* Render multiple tracks for seamless loop on all screen sizes */}
+          {/* Multiple tracks for seamless loop */}
           {[...Array(4)].map((_, trackIndex) => (
-            <div 
-              key={trackIndex} 
+            <div
+              key={trackIndex}
               className="flex gap-6 animate-marquee"
-              style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
+              style={{
+                animationPlayState: isPaused ? "paused" : "running",
+              }}
             >
               {SERVICES.map((service, i) => (
-                <ServiceCard key={`${trackIndex}-${i}`} service={service} />
+                <ServiceCard
+                  key={`${trackIndex}-${i}`}
+                  service={service}
+                />
               ))}
             </div>
           ))}
-
         </div>
       </div>
     </section>

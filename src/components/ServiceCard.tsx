@@ -33,28 +33,48 @@ const ServiceCard = ({ service }: Props) => {
         h-[220px]
         flex-shrink-0
         rounded-2xl
-        border border-white/10
-        bg-gradient-to-b from-white/5 to-transparent
+        border
         p-6
-        transition
-        hover:border-primary/60
-        hover:shadow-[0_0_40px_rgba(255,180,0,0.15)]
+        transition-all duration-300
       "
+      style={{
+        backgroundColor: "hsla(var(--card) / 0.85)",
+        borderColor: "hsla(var(--border) / 1)",
+      }}
     >
+      {/* Hover glow */}
+      <div
+        className="
+          absolute inset-0 rounded-2xl
+          opacity-0 group-hover:opacity-100
+          transition-opacity duration-300
+          pointer-events-none
+        "
+        style={{
+          boxShadow:
+            "0 0 14px hsl(0 85% 55% / 0.35), 0 0 28px hsl(0 85% 55% / 0.2)",
+        }}
+      />
+
       {/* Icon */}
-      <div className="
-        mb-4
-        w-11 h-11
-        rounded-xl
-        border border-primary/40
-        flex items-center justify-center
-        text-primary
-      ">
+      <div
+        className="
+          mb-4
+          w-11 h-11
+          rounded-xl
+          flex items-center justify-center
+          transition-all duration-300
+        "
+        style={{
+          border: "1px solid hsla(var(--primary) / 0.4)",
+          color: "hsl(var(--primary))",
+        }}
+      >
         <Icon size={22} />
       </div>
 
       {/* Title */}
-      <h3 className="font-display text-lg text-white mb-2">
+      <h3 className="font-display text-lg text-foreground mb-2">
         {service.title}
       </h3>
 
@@ -65,12 +85,15 @@ const ServiceCard = ({ service }: Props) => {
 
       {/* Link (desktop only) */}
       {service.linkText && (
-        <span className="
-          hidden md:inline-flex
-          absolute bottom-5 left-6
-          items-center gap-1
-          text-sm text-primary
-        ">
+        <span
+          className="
+            hidden md:inline-flex
+            absolute bottom-5 left-6
+            items-center gap-1
+            text-sm
+          "
+          style={{ color: "hsl(var(--primary))" }}
+        >
           {service.linkText}
           <ArrowUpRight size={14} />
         </span>
