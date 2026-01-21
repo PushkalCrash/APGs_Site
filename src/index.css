@@ -20,54 +20,73 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   BASE THEME VARIABLES — OBSIDIAN + RED
+============================================================ */
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 45 20% 95%;
+    /* ===== Obsidian surfaces ===== */
+    --background: 220 10% 8%;
+    --foreground: 0 0% 96%;
 
-    --card: 0 0% 8%;
-    --card-foreground: 45 20% 95%;
+    --card: 220 8% 12%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 45 20% 95%;
+    --popover: 220 8% 12%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 38 92% 50%;
-    --primary-foreground: 0 0% 4%;
+    /* ===== Brand accent: Red ===== */
+    --primary: 0 85% 55%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 45 20% 95%;
+    --secondary: 220 8% 16%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 220 6% 20%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 38 92% 50%;
-    --accent-foreground: 0 0% 4%;
+    --accent: 0 85% 55%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 90% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 38 92% 50%;
+    --border: 220 6% 22%;
+    --input: 220 6% 22%;
+    --ring: 0 85% 55%;
 
     --radius: 0.5rem;
 
-    /* Custom theme */
-    --gold: 38 92% 50%;
-    --gold-glow: 38 100% 60%;
-    --charcoal: 0 0% 8%;
-    --deep-black: 0 0% 4%;
+    /* ===== Custom semantic tokens ===== */
+    --red: 0 85% 55%;
+    --red-glow: 0 100% 65%;
+    --obsidian: 220 10% 8%;
+    --obsidian-deep: 220 10% 6%;
 
-    /* Gradients */
-    --gradient-gold: linear-gradient(135deg, hsl(38 92% 50%), hsl(45 100% 60%));
-    --gradient-dark: linear-gradient(180deg, hsl(0 0% 4%), hsl(0 0% 8%));
-    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(0 0% 4% / 0.8) 100%);
+    /* ===== Gradients ===== */
+    --gradient-red: linear-gradient(
+      135deg,
+      hsl(0 85% 55%),
+      hsl(0 100% 65%)
+    );
 
-    /* Shadows */
-    --shadow-gold: 0 0 40px hsl(38 92% 50% / 0.3);
-    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.4);
+    --gradient-dark: linear-gradient(
+      180deg,
+      hsl(220 10% 6%),
+      hsl(220 10% 10%)
+    );
 
-    /* Fonts */
+    --gradient-overlay: linear-gradient(
+      180deg,
+      transparent 0%,
+      hsl(220 10% 6% / 0.85) 100%
+    );
+
+    /* ===== Shadows ===== */
+    --shadow-red: 0 0 42px hsl(0 100% 60% / 0.35);
+    --shadow-card: 0 10px 36px hsl(0 0% 0% / 0.45);
+
+    /* ===== Fonts ===== */
     --font-display: 'Bebas Neue', sans-serif;
     --font-body: 'Inter', sans-serif;
   }
@@ -83,31 +102,32 @@
   }
 }
 
+/* ============================================================
+   COMPONENT UTILITIES
+============================================================ */
 @layer components {
   .font-display {
     font-family: var(--font-display);
   }
 
-  /* Lakeshore brush font for GUPTA */
   .font-brush {
     font-family: 'Lakeshore', cursive;
     letter-spacing: 0.12em;
   }
-  
+
   .font-editorial {
-  font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: -0.02em;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: -0.02em;
   }
 
-
   .text-gradient {
-    background: var(--gradient-gold);
+    background: var(--gradient-red);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .glow-gold {
-    box-shadow: var(--shadow-gold);
+    box-shadow: var(--shadow-red);
   }
 
   .card-glass {
@@ -127,8 +147,9 @@
   }
 }
 
-
-/* ===== Hero video helpers ===== */
+/* ============================================================
+   HERO VIDEO
+============================================================ */
 .hero-video {
   position: absolute;
   inset: 0;
@@ -143,18 +164,19 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.55),
     rgba(0,0,0,0.85)
   );
   z-index: 1;
 }
 
-/* === Thin edge fade for marquee (responsive) === */
+/* ============================================================
+   MARQUEE EDGE FADE
+============================================================ */
 .services-marquee-mask {
   position: relative;
   overflow: hidden;
 
-  /* Mask keeps fade tied to viewport */
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -190,11 +212,6 @@
   }
 }
 
-.services-marquee-mask {
-  overflow: hidden;
-  position: relative;
-}
-
 .services-marquee-mask::before,
 .services-marquee-mask::after {
   content: "";
@@ -224,16 +241,21 @@
   );
 }
 
-
-/* ===== Animations ===== */
+/* ============================================================
+   ANIMATIONS
+============================================================ */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
+  0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
 }
 
-@keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 20px hsl(38 92% 50% / 0.3); }
-  50% { box-shadow: 0 0 40px hsl(38 92% 50% / 0.5); }
+@keyframes pulse-red {
+  0%, 100% {
+    box-shadow: 0 0 22px hsl(0 85% 55% / 0.35);
+  }
+  50% {
+    box-shadow: 0 0 48px hsl(0 100% 65% / 0.55);
+  }
 }
 
 @keyframes slide-up {
@@ -246,13 +268,12 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== Utilities ===== */
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
 .animate-pulse-gold {
-  animation: pulse-gold 2s ease-in-out infinite;
+  animation: pulse-red 2s ease-in-out infinite;
 }
 
 .animate-slide-up {
@@ -263,26 +284,40 @@
   animation: fade-in-up 0.6s ease-out forwards;
 }
 
-/* ===== Scrollbar ===== */
+/* ============================================================
+   SCROLLBAR
+============================================================ */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--background));
+  background: hsl(var(--obsidian));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted));
+  background: hsl(220 6% 30%);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary));
+  background: hsl(var(--red));
 }
+
+/* ============================================================
+   LAKESHORE BRUSH
+============================================================ */
 .lakeshore {
   font-family: "Lakeshore", cursive;
-  letter-spacing: -0.02em; /* tighter brush strokes */
+  letter-spacing: -0.02em;
   line-height: 0.85;
-  text-shadow: 0 0 28px rgba(255, 170, 0, 0.35);
+
+  /* FORCE brand color */
+  color: hsl(var(--red));
+
+  /* Red cinematic glow */
+  text-shadow:
+    0 0 12px hsl(0 85% 55% / 0.6),
+    0 0 28px hsl(0 100% 65% / 0.45),
+    0 0 48px hsl(0 100% 65% / 0.25);
 }

@@ -27,11 +27,21 @@ const ServicesSection = () => {
 
       {/* ===== DESKTOP / TABLET (MARQUEE) - FULL WIDTH ===== */}
       <div className="relative hidden md:block overflow-hidden w-full">
-        {/* Left edge blur */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-        
-        {/* Right edge blur */}
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+        {/* Left edge fade */}
+        <div
+          className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
+          style={{
+            background: "linear-gradient(to right, hsl(var(--background)), transparent)"
+          }}
+        />
+
+        {/* Right edge fade */}
+        <div
+          className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
+          style={{
+            background: "linear-gradient(to left, hsl(var(--background)), transparent)"
+          }}
+        />
 
         <div 
           className="flex w-max"

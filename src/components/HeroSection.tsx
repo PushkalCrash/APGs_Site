@@ -22,36 +22,36 @@ const HeroSection = () => {
 
       <div className="relative z-10 text-center px-6">
 
-        {/* Name wrapper */}
-        <div className="relative inline-block">
+      {/* Name wrapper */}
+      <div className="relative inline-block leading-none">
 
-          {/* ARYA */}
-          <div className="font-display text-white text-[24vw] md:text-[20vw] tracking-tight">
-            Arya
-          </div>
-
-          {/* GUPTA — ABSOLUTE OVERLAY */}
-          <div
-            className="
-              absolute
-              left-1/2
-              -translate-x-1/2
-              top-[0vw] md:top-[-3vw]
-              font-brush
-              text-[28vw] md:text-[24vw]
-              text-[hsl(var(--gold))]
-              tracking-[-0.03em]
-              drop-shadow-[0_0_60px_rgba(255,180,0,0.7)]
-              pointer-events-none
-            "
-              style={{
-              transform: "translateX(-50%) rotate(-4deg)  skewX(-4deg)"
-               }}
-          >
-            Gupta
-          </div>
-
+        {/* ARYA */}
+        <div className="font-display text-white text-[24vw] md:text-[20vw] tracking-tight">
+          Arya
         </div>
+
+        {/* GUPTA — BRUSH OVERLAY */}
+        <div
+          className="
+            absolute
+            left-1/2
+            bottom-[3%]
+            -translate-x-1/2
+            font-brush lakeshore
+            text-[28vw] md:text-[24vw]
+            tracking-[-0.04em]
+            pointer-events-none
+            select-none
+          "
+          style={{
+            transform: "translateX(-50%) rotate(-4deg) skewX(-4deg)"
+          }}
+        >
+          Gupta
+        </div>
+
+      </div>
+
 
         {/* Tagline — stays clean */}
         <p className="

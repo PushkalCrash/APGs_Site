@@ -51,7 +51,10 @@ const GalleryImageCard = ({ image, index }: Props) => {
       className={`
         ${SIZE_CLASSES[image.size]}
         relative overflow-hidden rounded-2xl
-        bg-black/20
+       style={{
+        backgroundColor: "hsla(var(--background) / 0.6)"
+        }}
+
         group
       `}
     >
@@ -75,7 +78,17 @@ const GalleryImageCard = ({ image, index }: Props) => {
       <div
         className="
           absolute inset-0
-          bg-gradient-to-t from-black/60 via-black/20 to-transparent
+          style={{
+            background: `
+              linear-gradient(
+                to top,
+                hsla(var(--background) / 0.7),
+                hsla(var(--background) / 0.35),
+                hsla(var(--background) / 0)
+              )
+            `
+          }}
+
           opacity-0 group-hover:opacity-100
           transition-opacity duration-300
         "
