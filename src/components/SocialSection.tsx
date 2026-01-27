@@ -1,5 +1,5 @@
 import { useInView } from "@/hooks/useParallax";
-import { Instagram, Youtube, Twitter, Facebook, Mail } from "lucide-react";
+import { Instagram, Youtube, Twitter, Facebook,Linkedin, Mail } from "lucide-react";
 import { SITE } from "@/config/site";
 
 const socials = [
@@ -18,26 +18,19 @@ const socials = [
     color: "hover:text-red-500",
   },
   {
-    icon: Twitter,
-    label: "Twitter",
-    handle: "@aryagupta_",
-    url: "https://twitter.com/aryagupta_",
-    color: "hover:text-sky-400",
-  },
-  {
-    icon: Facebook,
-    label: "Facebook",
-    handle: "Arya Pradyumn Gupta",
-    url: "https://facebook.com/",
-    color: "hover:text-blue-500",
-  },
-  {
     icon: Mail,
     label: "Email",
     handle: "its.apg@gmail.com",
-    url: "mailto:its.apg@gmail.com",
+    url: "mailto:Its.apg.music@gmail.com",
     color: "hover:text-primary",
   },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    handle: "Arya Pradyumn Gupta",
+    url: "https://mail.google.com/mail/?view=cm&fs=1&to=its.apg@gmail.com&su=Music%20Inquiry&body=Hi%20Arya,",
+    color: "hover:text-blue-500",
+  }
 ];
 
 const SocialSection = () => {

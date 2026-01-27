@@ -1,7 +1,10 @@
+/* ============================================================
+   FONTS
+============================================================ */
 @font-face {
   font-family: "Lakeshore";
   src: url("/Lakeshore-Regular.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-display: block;
 }
@@ -9,7 +12,7 @@
 @font-face {
   font-family: "Lakeshore";
   src: url("/Lakeshore-Italic.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 400;
   font-style: italic;
   font-display: block;
 }
@@ -21,74 +24,33 @@
 @tailwind utilities;
 
 /* ============================================================
-   BASE THEME VARIABLES — OBSIDIAN + RED
+   THEME VARIABLES — OBSIDIAN + RED
 ============================================================ */
 @layer base {
   :root {
-    /* ===== Obsidian surfaces ===== */
+    /* Core surfaces */
     --background: 220 10% 8%;
     --foreground: 0 0% 96%;
-
     --card: 220 8% 12%;
-    --card-foreground: 0 0% 96%;
-
-    --popover: 220 8% 12%;
-    --popover-foreground: 0 0% 96%;
-
-    /* ===== Brand accent: Red ===== */
-    --primary: 0 85% 55%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 220 8% 16%;
-    --secondary-foreground: 0 0% 96%;
-
-    --muted: 220 6% 20%;
-    --muted-foreground: 0 0% 65%;
-
-    --accent: 0 85% 55%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 90% 60%;
-    --destructive-foreground: 0 0% 100%;
-
     --border: 220 6% 22%;
-    --input: 220 6% 22%;
-    --ring: 0 85% 55%;
 
-    --radius: 0.5rem;
-
-    /* ===== Custom semantic tokens ===== */
+    /* Brand */
     --red: 0 85% 55%;
     --red-glow: 0 100% 65%;
-    --obsidian: 220 10% 8%;
-    --obsidian-deep: 220 10% 6%;
 
-    /* ===== Gradients ===== */
-    --gradient-red: linear-gradient(
-      135deg,
-      hsl(0 85% 55%),
-      hsl(0 100% 65%)
-    );
+    /* Accent system */
+    --primary: var(--red);
+    --ring: var(--red);
 
-    --gradient-dark: linear-gradient(
-      180deg,
-      hsl(220 10% 6%),
-      hsl(220 10% 10%)
-    );
-
-    --gradient-overlay: linear-gradient(
-      180deg,
-      transparent 0%,
-      hsl(220 10% 6% / 0.85) 100%
-    );
-
-    /* ===== Shadows ===== */
-    --shadow-red: 0 0 42px hsl(0 100% 60% / 0.35);
+    /* Shadows */
+    --shadow-red: 0 0 42px hsl(var(--red-glow) / 0.35);
     --shadow-card: 0 10px 36px hsl(0 0% 0% / 0.45);
 
-    /* ===== Fonts ===== */
+    /* Fonts */
     --font-display: 'Bebas Neue', sans-serif;
     --font-body: 'Inter', sans-serif;
+
+    --radius: 0.5rem;
   }
 
   html {
@@ -106,38 +68,17 @@
    COMPONENT UTILITIES
 ============================================================ */
 @layer components {
+  /* Typography */
   .font-display {
     font-family: var(--font-display);
   }
 
   .font-brush {
-    font-family: 'Lakeshore', cursive;
-    letter-spacing: 0.12em;
-  }
-
-  .font-editorial {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: "Lakeshore", cursive;
     letter-spacing: -0.02em;
+    line-height: 0.85;
   }
 
-  .text-gradient {
-    background: var(--gradient-red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .glow-gold {
-    box-shadow: var(--shadow-red);
-  }
-
-  .card-glass {
-    background: hsl(var(--card) / 0.6);
-    backdrop-filter: blur(12px);
-    border: 1px solid hsl(var(--border) / 0.5);
-  }
-}
-
-@layer components {
   .section-title {
     @apply font-display text-white text-5xl md:text-7xl leading-none;
   }
@@ -145,10 +86,32 @@
   .section-eyebrow {
     @apply text-primary uppercase tracking-[0.3em] text-sm font-medium mb-4;
   }
+
+  /* Cards */
+  .card-glass {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .glow-red {
+    box-shadow: var(--shadow-red);
+  }
+
+  /* Text */
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--red)),
+      hsl(var(--red-glow))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 /* ============================================================
-   HERO VIDEO
+   HERO
 ============================================================ */
 .hero-video {
   position: absolute;
@@ -164,79 +127,31 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.55),
-    rgba(0,0,0,0.85)
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.85)
   );
   z-index: 1;
 }
 
 /* ============================================================
-   MARQUEE EDGE FADE
+   MARQUEE SYSTEM (Reusable)
 ============================================================ */
-.services-marquee-mask {
+.marquee-mask {
   position: relative;
   overflow: hidden;
 
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
-    black 3%,
-    black 97%,
+    black 4%,
+    black 96%,
     transparent 100%
   );
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    black 3%,
-    black 97%,
-    transparent 100%
-  );
-}
-
-@media (max-width: 640px) {
-  .services-marquee-mask {
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 6%,
-      black 94%,
-      transparent 100%
-    );
-    mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 6%,
-      black 94%,
-      transparent 100%
-    );
-  }
-}
-
-.services-marquee-mask::before,
-.services-marquee-mask::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 4rem;
-  height: 100%;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.services-marquee-mask::before {
-  left: 0;
-  background: linear-gradient(
-    to right,
-    hsl(var(--background)) 0%,
-    transparent 100%
-  );
-}
-
-.services-marquee-mask::after {
-  right: 0;
-  background: linear-gradient(
-    to left,
-    hsl(var(--background)) 0%,
+    black 4%,
+    black 96%,
     transparent 100%
   );
 }
@@ -244,23 +159,18 @@
 /* ============================================================
    ANIMATIONS
 ============================================================ */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
+  0%,100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse-red {
-  0%, 100% {
-    box-shadow: 0 0 22px hsl(0 85% 55% / 0.35);
-  }
-  50% {
-    box-shadow: 0 0 48px hsl(0 100% 65% / 0.55);
-  }
-}
-
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(60px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fade-in-up {
@@ -270,14 +180,6 @@
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
-}
-
-.animate-pulse-gold {
-  animation: pulse-red 2s ease-in-out infinite;
-}
-
-.animate-slide-up {
-  animation: slide-up 0.8s ease-out forwards;
 }
 
 .animate-fade-in-up {
@@ -292,11 +194,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(var(--obsidian));
+  background: hsl(var(--background));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(220 6% 30%);
+  background: hsl(var(--border));
   border-radius: 4px;
 }
 
@@ -305,19 +207,15 @@
 }
 
 /* ============================================================
-   LAKESHORE BRUSH
+   LAKESHORE BRAND GLOW
 ============================================================ */
 .lakeshore {
   font-family: "Lakeshore", cursive;
   letter-spacing: -0.02em;
   line-height: 0.85;
-
-  /* FORCE brand color */
   color: hsl(var(--red));
-
-  /* Red cinematic glow */
   text-shadow:
-    0 0 12px hsl(0 85% 55% / 0.6),
-    0 0 28px hsl(0 100% 65% / 0.45),
-    0 0 48px hsl(0 100% 65% / 0.25);
+    0 0 12px hsl(var(--red) / 0.6),
+    0 0 28px hsl(var(--red-glow) / 0.45),
+    0 0 48px hsl(var(--red-glow) / 0.25);
 }

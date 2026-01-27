@@ -5,6 +5,7 @@ import GallerySection from '@/components/GallerySection';
 import AlbumsSection from '@/components/AlbumsSection';
 import SocialSection from '@/components/SocialSection';
 import AchievementSection from '@/components/AchievementSection';
+import ImpactSection from '@/components/ImpactSection';
 
 const Index = () => {
   return (
@@ -14,7 +15,9 @@ const Index = () => {
       <section id="home">
         <HeroSection />
       </section>
-
+      <section id="impact">
+        <ImpactSection />
+      </section>
       <section id="services">
         <ServicesSection />
       </section>

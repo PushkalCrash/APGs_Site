@@ -1,12 +1,7 @@
-import { SITE } from "@/config/site";
-
 const HeroSection = () => {
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
 
-      {/* ======================================================
-          CHANGE VIDEO DETAILS HERE
-         ====================================================== */}
       <video
         className="hero-video"
         src="/bgvideo.mp4"
@@ -15,57 +10,64 @@ const HeroSection = () => {
         loop
         playsInline
         preload="auto"
-        poster="/videoposteer.jpg" 
+        poster="/videoposteer.jpg"
       />
 
       <div className="hero-overlay" />
 
       <div className="relative z-10 text-center px-6">
 
-      {/* Name wrapper */}
-      <div className="relative inline-block leading-none">
+        {/* Name wrapper */}
+        <div className="relative inline-block leading-[0.85]">
 
-        {/* ARYA */}
-        <div className="font-display text-white text-[24vw] md:text-[20vw] tracking-tight">
-          Arya
+          {/* Main Stack */}
+          <div className="font-display text-white tracking-tight">
+            <div className="text-[18vw] md:text-[16vw]">
+              ARYA
+            </div>
+            <div className="text-[12vw] md:text-[8vw] opacity-80">
+              PRADYUMN
+            </div>
+            <div className="text-[18vw] md:text-[16vw]">
+              GUPTA
+            </div>
+          </div>
+
+          {/* APG Brush Overlay */}
+          <div
+            className="
+              absolute
+              inset-0
+              flex
+              items-center
+              justify-center
+              font-brush
+              lakeshore
+              text-[30vw] md:text-[28vw]
+              text-[hsl(var(--primary))]
+              pointer-events-none
+              select-none
+            "
+            style={{
+              transform: "rotate(-14deg) skewX(-4deg)",
+              textShadow: "0 0 40px hsl(0 85% 55% / 0.4)"
+            }}
+          >
+            APG
+          </div>
+
         </div>
 
-        {/* GUPTA — BRUSH OVERLAY */}
-        <div
-          className="
-            absolute
-            left-1/2
-            bottom-[3%]
-            -translate-x-1/2
-            font-brush lakeshore
-            text-[28vw] md:text-[24vw]
-            tracking-[-0.04em]
-            pointer-events-none
-            select-none
-          "
-          style={{
-            transform: "translateX(-50%) rotate(-4deg) skewX(-4deg)"
-          }}
-        >
-          Gupta
-        </div>
-
-      </div>
-
-
-        {/* Tagline — stays clean */}
+        {/* Tagline */}
         <p className="
-              mt-[6vw] md:mt-[3vw]
-              max-w-xl
-              mx-auto
-              text-muted-foreground
-              text-base md:text-lg
-              text-center
-          "
-        >
-          Musician • Producer • Performer
+          mt-10
+          max-w-xl
+          mx-auto
+          text-muted-foreground
+          text-base md:text-lg
+        ">
+          Musician • Instructor • Performer
         </p>
-
 
       </div>
     </section>
