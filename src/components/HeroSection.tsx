@@ -1,7 +1,8 @@
 const HeroSection = () => {
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+    <section className="relative h-screen w-full overflow-hidden">
 
+      {/* Background Video */}
       <video
         className="hero-video"
         src="/bgvideo.mp4"
@@ -15,61 +16,65 @@ const HeroSection = () => {
 
       <div className="hero-overlay" />
 
-      <div className="relative z-10 text-center px-6">
+      {/* CENTER WRAPPER */}
+      <div className="absolute inset-0 flex items-center justify-center z-10">
 
-        {/* Name wrapper */}
-        <div className="relative inline-block leading-[0.85]">
+        {/* NAME + APG WRAPPER */}
+        <div
+          className="relative inline-block text-center"
+          style={{
+            // Single source of truth
+            "--name-size": "clamp(2.5rem, 7vw, 6.5rem)"
+          } as React.CSSProperties}
+        >
 
-          {/* Main Stack */}
-          <div className="font-display text-white tracking-tight">
-            <div className="text-[18vw] md:text-[16vw]">
-              ARYA
-            </div>
-            <div className="text-[12vw] md:text-[8vw] opacity-80">
-              PRADYUMN
-            </div>
-            <div className="text-[18vw] md:text-[16vw]">
-              GUPTA
-            </div>
-          </div>
-
-          {/* APG Brush Overlay */}
-          <div
-            className="
-              absolute
-              inset-0
-              flex
-              items-center
-              justify-center
-              font-brush
-              lakeshore
-              text-[30vw] md:text-[28vw]
-              text-[hsl(var(--primary))]
-              pointer-events-none
-              select-none
-            "
+          {/* FULL NAME */}
+          <h1
+            className="font-display text-white opacity-80 tracking-tight leading-none whitespace-nowrap"
             style={{
-              transform: "rotate(-14deg) skewX(-4deg)",
-              textShadow: "0 0 40px hsl(0 85% 55% / 0.4)"
+              fontSize: "var(--name-size)"
             }}
           >
-            APG
+            ARYA PRADYUMN GUPTA
+          </h1>
+
+          {/* APG CENTER WRAPPER */}
+          <div
+            className="absolute top-1/2 left-1/2 pointer-events-none select-none"
+            style={{
+              
+              transform: "translate(-50%, -80%)"
+            }}
+          >
+            <div
+              className="font-brush apg-glitch leading-none"
+              style={{
+                // Always 1.6x name
+                fontSize: "calc(var(--name-size) * 2.6)"
+              }}
+              data-text="APG"
+            >
+              APG
+            </div>
           </div>
 
         </div>
 
-        {/* Tagline */}
-        <p className="
-          mt-10
-          max-w-xl
-          mx-auto
-          text-muted-foreground
-          text-base md:text-lg
-        ">
+      </div>
+
+      {/* TAGLINE */}
+      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+        <p
+          className="text-muted-foreground tracking-wide"
+          style={{
+            transform: "translateY(140px)", // below name center
+            fontSize: "clamp(0.8rem, 1.4vw, 1.2rem)"
+          }}
+        >
           Musician • Instructor • Performer
         </p>
-
       </div>
+
     </section>
   );
 };

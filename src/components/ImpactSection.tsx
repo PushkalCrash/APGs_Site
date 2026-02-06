@@ -6,20 +6,36 @@ const ImpactSection = () => {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section className="relative w-full py-24">
+    <section className="relative w-full py-28 overflow-visible">
 
-      {/* Title */}
-      <div className="container mb-14">
-        <p className="section-eyebrow"></p>
-        <h2 className="section-title">WHAT MAKES APG?</h2>
+      {/* ===== TITLE ===== */}
+      <div className="container mb-16 flex justify-center">
+        <h2 className="font-display text-5xl md:text-7xl text-white leading-none flex items-baseline gap-3">
+          WHO IS
+
+          {/* Adjustable APG */}
+          <span
+            className="font-brush text-red-500 relative inline-block"
+            style={{
+              fontSize: "1.55em",   // 🔥 size control
+              top: "2px",           // 🔥 vertical adjust (move up/down)
+              left: "2px",          // 🔥 horizontal adjust
+            }}
+          >
+            APG
+          </span>
+
+          ?
+        </h2>
       </div>
 
-      {/* Marquee */}
-      <div className="relative w-full overflow-hidden">
+
+      {/* ===== MARQUEE ===== */}
+      <div className="relative w-full overflow-visible">
 
         {/* Left fade */}
         <div
-          className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
+          className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
           style={{
             background:
               "linear-gradient(to right, hsl(var(--background)), transparent)",
@@ -28,7 +44,7 @@ const ImpactSection = () => {
 
         {/* Right fade */}
         <div
-          className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
+          className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
           style={{
             background:
               "linear-gradient(to left, hsl(var(--background)), transparent)",
@@ -36,15 +52,14 @@ const ImpactSection = () => {
         />
 
         <div
-          className="flex w-max gap-6 px-6"
+          className="flex w-max gap-8 px-6 overflow-visible"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          onClick={() => setIsPaused((prev) => !prev)}
         >
           {[...Array(3)].map((_, trackIndex) => (
             <div
               key={trackIndex}
-              className="flex gap-6 animate-marquee"
+              className="flex gap-8 animate-marquee overflow-visible"
               style={{
                 animationPlayState: isPaused ? "paused" : "running",
               }}

@@ -7,18 +7,28 @@ interface ImpactCardProps {
 
 const ImpactCard = ({ stat }: ImpactCardProps) => {
   return (
-    <div className="w-[240px] md:w-[300px] shrink-0 
-                    rounded-2xl border border-white/10 
-                    bg-white/5 backdrop-blur-sm
-                    p-6 md:p-8 
-                    transition-all duration-300
-                    hover:border-primary/40 hover:bg-white/10">
+    <div
+      className="
+        w-[180px] md:w-[220px]    /* ⬅ shorter horizontally */
+        shrink-0
 
-      <div className="text-3xl md:text-4xl font-bold tracking-tight text-white">
+        rounded-xl
+        border border-white/10
+
+        bg-[hsl(var(--card))]
+        p-4 md:p-5                /* ⬅ reduced height */
+
+        transition-all duration-300
+
+        hover:border-[hsl(var(--accent))]
+        hover:shadow-[0_0_30px_hsl(var(--accent)/0.4)]
+      "
+    >
+      <div className="text-2xl md:text-3xl font-bold text-[hsl(var(--accent))]">
         {stat.number}
       </div>
 
-      <div className="mt-2 text-sm md:text-base text-white/70">
+      <div className="mt-1 text-xs md:text-sm text-white/70">
         {stat.label}
       </div>
     </div>
