@@ -24,9 +24,16 @@ const ImpactCard = ({ stat }: ImpactCardProps) => {
         hover:shadow-[0_0_30px_hsl(var(--accent)/0.4)]
       "
     >
-      <div className="text-2xl md:text-3xl font-bold text-[hsl(var(--accent))]">
-        {stat.number}
-      </div>
+        <div
+          className="font-black text-[hsl(var(--accent))]"
+          style={{
+            fontSize: "clamp(1.25rem, 2vw, 1.6rem)",
+            lineHeight: "1.1",
+          }}
+        >
+          {stat.number}
+        </div>
+
 
       <div className="mt-1 text-xs md:text-sm text-white/70">
         {stat.label}

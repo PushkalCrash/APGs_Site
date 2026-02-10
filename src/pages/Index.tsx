@@ -1,10 +1,9 @@
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
-import ServicesSection from '@/components/ServicesSection';
+import ServicePreviewSection from '@/components/ServicePreviewSection';
 import GallerySection from '@/components/GallerySection';
 import AlbumsSection from '@/components/AlbumsSection';
 import SocialSection from '@/components/SocialSection';
-import AchievementSection from '@/components/AchievementSection';
 import ImpactSection from '@/components/ImpactSection';
 
 const Index = () => {
@@ -19,7 +18,7 @@ const Index = () => {
         <ImpactSection />
       </section>
       <section id="services">
-        <ServicesSection />
+        <ServicePreviewSection />
       </section>
 
       <section id="releases">
@@ -30,9 +29,6 @@ const Index = () => {
         <GallerySection />
       </section>
 
-      <section id="achievements">
-        <AchievementSection />
-      </section>
 
       <section id="contact">
         <SocialSection />
