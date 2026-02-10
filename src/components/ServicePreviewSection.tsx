@@ -9,7 +9,7 @@ const ServicePreviewSection = () => {
           eyebrow="Guitar Lessons"
           title="Structured Guitar Lessons For All Levels"
           description="Whether you're picking up a guitar for the first time or refining advanced techniques, these structured one on one sessions are built to move you forward with clarity and measurable progress."
-          cta="Learn More About Guitar Lessons"
+          cta="Consult Regarding Guitar Lessons"
           href="https://calendly.com/its-apg-music/guitar-consultation-lesson"
           image="/Services/Lessons.jpeg"
           align="left"
