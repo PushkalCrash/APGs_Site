@@ -6,7 +6,7 @@ const ImpactSection = () => {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section className="relative w-full py-28 overflow-visible">
+    <section className="relative w-full py-28 overflow-hidden">
 
       {/* ===== TITLE ===== */}
       <div className="container mb-16 flex justify-center">
@@ -31,7 +31,7 @@ const ImpactSection = () => {
 
 
       {/* ===== MARQUEE ===== */}
-      <div className="relative w-full overflow-visible">
+      <div className="relative w-full overflow-hidden">
 
         {/* Left fade */}
         <div
@@ -52,14 +52,14 @@ const ImpactSection = () => {
         />
 
         <div
-          className="flex w-max gap-8 px-6 overflow-visible"
+          className="flex w-max gap-8 px-6"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
           {[...Array(3)].map((_, trackIndex) => (
             <div
               key={trackIndex}
-              className="flex gap-8 animate-marquee overflow-visible"
+              className="flex gap-8 animate-marquee"
               style={{
                 animationPlayState: isPaused ? "paused" : "running",
               }}
