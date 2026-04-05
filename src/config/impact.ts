@@ -4,11 +4,7 @@ export const IMPACT_STATS = [
     label: "Music Awards",
   },
   {
-    number: "7",
-    label: "Countries Performed In",
-  },
-  {
-    number: "16",
+    number: "16+",
     label: "Years in Music Industry",
   },
   {
