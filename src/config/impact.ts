@@ -8,7 +8,7 @@ export const IMPACT_STATS = [
     label: "Countries Performed In",
   },
   {
-    number: "5",
+    number: "16",
     label: "Years in Music Industry",
   },
   {
@@ -16,15 +16,19 @@ export const IMPACT_STATS = [
     label: "Biggest Live Audience",
   },
   {
-    number: "100+",
+    number: "250+",
     label: "Studio Sessions",
   },
   {
-    number: "6 DAWs",
+    number: "6 DAWs Used",
     label: "Production Tools Mastered",
   },
   {
-    number: "7+",
+    number: "8+",
     label: "Years Teaching Guitar",
   },
+  {
+    number: "20+",
+    lable: "  International Students from 7 Countries"
+  }
 ];
