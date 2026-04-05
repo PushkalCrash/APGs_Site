@@ -16,8 +16,8 @@ export const IMPACT_STATS = [
     label: "Studio Sessions",
   },
   {
-    number: "6 DAWs Used",
-    label: "Production Tools Mastered",
+    number: "6",
+    label: "DAWs Used",
   },
   {
     number: "8+",
@@ -25,6 +25,6 @@ export const IMPACT_STATS = [
   },
   {
     number: "20+",
-    lable: "  International Students from 7 Countries"
+    lable: "International Students from 7 Countries"
   }
 ];
